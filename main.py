@@ -4,9 +4,21 @@ import ta
 import telebot
 import time
 import requests
+import os
+from dotenv import load_dotenv
+import telebot
+
+# .env fayldan ma'lumotlarni yuklash
+load_dotenv()
 
 BOT_TOKEN = os.getenv("BOT_TOKEN")
-CHAT_ID = int(os.getenv("CHAT_ID"))
+CHAT_ID = os.getenv("CHAT_ID")
+
+print("BOT_TOKEN:", BOT_TOKEN)
+print("CHAT_ID:", CHAT_ID)
+
+bot = telebot.TeleBot(BOT_TOKEN)
+bot.send_message(CHAT_ID, "✅ Bot muvaffaqiyatli ishga tushdi!")
 
 bot = telebot.TeleBot(BOT_TOKEN)
 
