@@ -1,12 +1,14 @@
-import pandas as pd #type:ignore
-import ta #type:ignore
-import telebot #type:ignore
+import os
+import pandas as pd
+import ta
+import telebot
 import time
-import requests #type:ignore
+import requests
 
-bot = telebot.TeleBot('8375456709:AAGiMf3_TeHQgHpxqSSQHiNMuOu0PdEdjww')
-CHAT_ID = -1003219348415
+BOT_TOKEN = os.getenv("BOT_TOKEN")
+CHAT_ID = int(os.getenv("CHAT_ID"))
 
+bot = telebot.TeleBot(BOT_TOKEN)
 
 def get_data():
     url = "https://api.binance.com/api/v3/klines?symbol=BTCUSDT&interval=1h&limit=200"
